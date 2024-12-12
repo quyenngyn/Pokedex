@@ -2,7 +2,7 @@ const pokedex = document.getElementById("pokedex")
 
 const getPokemon = () => {
   const promises = []
-  for (let i = 1; i <= 151; i++) {
+  for (let i = 1; i <= 16; i++) {
     const url = `https://pokeapi.co/api/v2/pokemon/${i}`
     promises.push(fetch(url).then(res => res.json()))
   }
@@ -21,10 +21,13 @@ const displayPokemon = pokemon => {
   const pokemonString = pokemon
     .map(
       singlePokemon => `
-    <li>
-      <img src="${singlePokemon.image}" />
-      <h3>${singlePokemon.id}. ${singlePokemon.name}</h3>
-    </li>`
+      <li onclick="newPage('${singlePokemon.name}')">
+        <a href="details.html" target="blank">
+          <img src="${singlePokemon.image}" />
+        </a>
+        <h3>${singlePokemon.id}. ${singlePokemon.name}</h3>
+      </li>
+    `
     )
     .join("")
   pokedex.innerHTML = pokemonString
@@ -32,3 +35,6 @@ const displayPokemon = pokemon => {
 
 getPokemon()
 
+const newPage = (pokemon) => {
+  console.log(pokemon + " clicked")
+}
