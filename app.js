@@ -22,7 +22,7 @@ const displayPokemon = pokemon => {
     .map(
       singlePokemon => `
       <li onclick="newPage('${singlePokemon.name}')">
-        <a href="details.html" target="blank">
+        <a href="details.html?pokemonID=${singlePokemon.id}" target="blank">
           <img src="${singlePokemon.image}" />
         </a>
         <h3>${singlePokemon.id}. ${singlePokemon.name}</h3>
