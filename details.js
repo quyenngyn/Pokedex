@@ -4,7 +4,9 @@ const urlParams = new URLSearchParams(queryString); // constructor method - cons
 
 const pokemonID = urlParams.get('pokemonID');
 
-const test = document.getElementById("test");
+const card = document.getElementById("card");
+const cardTitle = document.getElementById("card-title");
+const typeList = document.getElementById("type-list");
 
 const getPokemonStats = () => {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonID}`;
@@ -19,17 +21,42 @@ const getPokemonStats = () => {
         .then((result) => {
             const pokemon = {
                 name: result.name,
-                id: result.id
+                id: result.id,
+                types: result.types.map((type) => type.type.name),
+                height: result.height,
+                weight: result.weight,
+                image: result.sprites["front_default"],
+                stats: result.stats.map((stat) => {
+                    return {
+                        name: stat.stat.name,
+                        baseStat: stat.base_stat
+                    }
+                })
             }
         displayStats(pokemon)})
         .catch((error) => console.error(error));
 }
 
 const displayStats = (pokemon) => {
-    let pokemonString =
-    `<li>${pokemon.name}
-    </li>`;
-    test.innerHTML = pokemonString;
+    cardTitle.textContent = pokemon.name;
+    pokemon.types.forEach((type) => {
+        const li = document.createElement("li");
+        li.textContent = type;
+        typeList.appendChild(li);
+    });
+    const img = document.getElementById("card-image");
+    img.src = pokemon.image;
+    img.alt = pokemon.name;
+    const statCard = document.getElementById("stat-card");
+    statCard.textContent = `Height: ${pokemon.height} | Weight: ${pokemon.weight}`;
+    const statsItems = document.createElement("p");
+    const statsString = pokemon.stats.map((stat) => {
+        if (stat.name == "hp" || stat.name == "defense" || stat.name == "attack") {
+        return `${stat.name}: ${stat.baseStat} | `;
+        }
+    }).join("");
+    statsItems.textContent = statsString;
+    statCard.appendChild(statsItems);
 }
 
 // const pokemonStats = getPokemon();
