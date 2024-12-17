@@ -51,19 +51,10 @@ const displayStats = (pokemon) => {
     statCard.textContent = `Height: ${pokemon.height} | Weight: ${pokemon.weight}`;
     const statsItems = document.createElement("p");
     const statsString = pokemon.stats.map((stat) => {
-        if (stat.name == "hp" || stat.name == "defense" || stat.name == "attack") {
-        return `${stat.name}: ${stat.baseStat} | `;
-        }
-    }).join("");
+        return `${stat.name}: ${stat.baseStat}`;
+    }).join(" | ");
     statsItems.textContent = statsString;
     statCard.appendChild(statsItems);
 }
-
-// const pokemonStats = getPokemon();
-
-// const test = document.getElementById("test");
-// console.log(pokemonStats);
-// console.log(pokemonStats.name);
-// test.textContent = pokemonStats.name;
 
 getPokemonStats();
