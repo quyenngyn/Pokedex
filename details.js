@@ -48,12 +48,13 @@ const displayStats = (pokemon) => {
     img.src = pokemon.image;
     img.alt = pokemon.name;
     const statCard = document.getElementById("stat-card");
-    statCard.textContent = `Height: ${pokemon.height} | Weight: ${pokemon.weight}`;
+    const attributesCard = document.getElementById("attributes-card")
+    attributesCard.innerHTML = `<span class="attribute-span"> Height: ${pokemon.height} </span><span class="attribute-span"> Weight: ${pokemon.weight} </span>`;
     const statsItems = document.createElement("p");
     const statsString = pokemon.stats.map((stat) => {
-        return `${stat.name}: ${stat.baseStat}`;
-    }).join(" | ");
-    statsItems.textContent = statsString;
+        return `<span class="stat-span"> ${stat.name}: ${stat.baseStat} </span>`;
+    }).join("");
+    statsItems.innerHTML = statsString;
     statCard.appendChild(statsItems);
 }
 

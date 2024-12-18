@@ -56,6 +56,10 @@ body {
 .card p {
     font-size: 1rem;
     margin-bottom: 10px;
+    display: flex;
+    flex-flow: column;
+    /* text-align: left; */
+
 }
 
 .card a {
@@ -84,4 +88,12 @@ body {
     border: var(--color-border) 1px solid;
     padding: 10px;
     border-radius: 5px;
+}
+
+#attributes-card {
+    padding: 25px;
+}
+
+.attribute-span {
+    padding: 10px;
 }
