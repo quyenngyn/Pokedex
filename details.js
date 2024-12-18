@@ -6,6 +6,7 @@ const pokemonID = urlParams.get('pokemonID');
 
 const card = document.getElementById("card");
 const cardTitle = document.getElementById("card-title");
+const cardID = document.getElementById("card-id");
 const typeList = document.getElementById("type-list");
 
 const getPokemonStats = () => {
@@ -38,6 +39,7 @@ const getPokemonStats = () => {
 }
 
 const displayStats = (pokemon) => {
+    cardID.textContent = `#${String(pokemon.id).padStart(3, '0')}`;
     cardTitle.textContent = pokemon.name;
     pokemon.types.forEach((type) => {
         const li = document.createElement("li");
