@@ -23,10 +23,11 @@ const displayPokemon = pokemon => {
     .map(
       singlePokemon => `
       <li class="card ${singlePokemon.types[0]}" onclick="newPage('${singlePokemon.name}')">
+        <div class="pokemon-id">#${String(singlePokemon.id).padStart(3, '0')}</div>
         <a href="details.html?pokemonID=${singlePokemon.id}" target="">
           <img class="poke-icon" src="${singlePokemon.image}" />
-        </a>
-        <h3>${singlePokemon.id}. ${singlePokemon.name}</h3>
+          </a>
+          <h3>${singlePokemon.name}</h3>
       </li>
     `
     )

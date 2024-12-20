@@ -1,22 +1,22 @@
 :root {
-    --normal: #A8A77A;
-    --fire: #EE8130;
-    --water: #6390F0;
-    --electric: #F7D02C;
-    --grass: #7AC74C;
-    --ice: #96D9D6;
-    --fighting: #C22E28;
-    --poison: #A33EA1;
-    --ground: #E2BF65;
-    --flying: #A98FF3;
-    --psychic: #F95587;
-    --bug: #A6B91A;
-    --rock: #B6A136;
-    --ghost: #735797;
-    --dragon: #6F35FC;
-    --dark: #705746;
-    --steel: #B7B7CE;
-    --fairy: #D685AD;
+    --normal: #A8A77ACC;
+    --fire: #EE8130CC;
+    --water: #6390F0CC;
+    --electric: #F7D02CCC;
+    --grass: #7AC74CCC;
+    --ice: #96D9D6CC;
+    --fighting: #C22E28CC;
+    --poison: #A33EA1CC;
+    --ground: #E2BF65CC;
+    --flying: #A98FF3CC;
+    --psychic: #F95587CC;
+    --bug: #A6B91ACC;
+    --rock: #B6A136CC;
+    --ghost: #735797CC;
+    --dragon: #6F35FCCC;
+    --dark: #705746CC;
+    --steel: #B7B7CECC;
+    --fairy: #D685ADCC;
 }
 
 .normal {
