@@ -6,6 +6,7 @@ const pokemonID = urlParams.get('pokemonID');
 
 const card = document.getElementById("card");
 const cardTitle = document.getElementById("card-title");
+const cardID = document.getElementById("card-id");
 const typeList = document.getElementById("type-list");
 
 const getPokemonStats = () => {
@@ -38,6 +39,7 @@ const getPokemonStats = () => {
 }
 
 const displayStats = (pokemon) => {
+    cardID.textContent = `#${String(pokemon.id).padStart(3, '0')}`;
     cardTitle.textContent = pokemon.name;
     pokemon.types.forEach((type) => {
         const li = document.createElement("li");
@@ -50,10 +52,10 @@ const displayStats = (pokemon) => {
     img.alt = pokemon.name;
     const statCard = document.getElementById("stat-card");
     const attributesCard = document.getElementById("attributes-card")
-    attributesCard.innerHTML = `<span class="attribute-span"> Height: ${pokemon.height} </span><span class="attribute-span"> Weight: ${pokemon.weight} </span>`;
-    const statsItems = document.createElement("p");
+    attributesCard.innerHTML = `<span class="attribute-span"> Height ${(pokemon.height * 0.1).toFixed(1)} m </span><span class="attribute-span"> Weight ${pokemon.weight * 0.1} kg </span>`;
+    const statsItems = document.createElement("div");
     const statsString = pokemon.stats.map((stat) => {
-        return `<span class="stat-span"> ${stat.name}: ${stat.baseStat} </span>`;
+        return `<p><span class="stat-span"> ${renameStats(stat.name)} </span> <span class="stat-span"> ${stat.baseStat} </span></p>`;
     }).join("");
     statsItems.innerHTML = statsString;
     statCard.appendChild(statsItems);
@@ -83,3 +85,16 @@ function setMainColor(type) {
 }
 
 getPokemonStats();
+
+const renameStats = (statName) => {
+    switch (statName) {
+        case "hp":
+            return "HP";
+        case "special-attack":
+            return "Sp.Atk";
+        case "special-defense":
+            return "Sp.Def";
+        default:
+            return statName.charAt(0).toUpperCase() + statName.slice(1);
+    }
+}

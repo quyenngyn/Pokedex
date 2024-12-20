@@ -1,3 +1,5 @@
+@font-face { font-family: PokemonGb; src: url('PokemonGb-RAeo.ttf'); } 
+
 .container {
     display: flex;
     flex-flow: column nowrap;
@@ -10,16 +12,16 @@
 * {
     margin: 0;
     padding: 0;
-    background: #c2c2c2;
+    background:#f9f9f2;
   }
   
-  h1 {
+  /* h1 {
     margin: 40px;
     text-transform: uppercase;
     text-align: center;
     color: #089eca;
     font-size: 3em;
-  }
+  } */
   
   ul {
     list-style: none;
@@ -34,9 +36,11 @@
     justify-content: center;
     width: 25%;
     font-size: 1.5rem;
-    color: #b48484;
+    color: black;
     margin-bottom: 70px;
     transition: all .2s ease-in-out;
+    font-family: 'PokemonGb', sans-serif;
+    font-size: 1em;
   }
   
   h3 {
@@ -45,4 +49,10 @@
   
   li:hover {
     transform: scale(1.5);
+  }
+
+  #pokedex-title {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
