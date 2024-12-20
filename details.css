@@ -3,6 +3,9 @@
     --color-background: #f4f4f4;
     --card-background: #f9f9f2;
     --color-border: #4b4a4ac4;
+    --color-pokedex: #dd092f;
+    --color-pokedex-border: #AAABAB;
+
 }
 
 @font-face { font-family: PokemonGb; src: url('PokemonGb-RAeo.ttf'); } 
@@ -15,7 +18,7 @@ body {
     place-items: center;
     height: 100vh;
     width: 100vw;
-    background: var(--color-background);
+    background: var(--color-pokedex);
 }
 
 .container {
@@ -24,6 +27,12 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+}
+
+#card-frame {
+    border: 30px solid var(--color-pokedex-border);
+    background-color: var(--color-pokedex-border);
+    border-radius: 10px;
 }
 
 .card {
