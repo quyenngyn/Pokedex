@@ -53,8 +53,10 @@ const displayStats = (pokemon) => {
     const statCard = document.getElementById("stat-card");
     const attributesCard = document.getElementById("attributes-card")
     attributesCard.innerHTML = `
-        <span class="attribute-span">Height ${(pokemon.height * 0.1).toFixed(1)} m</span>
-        <span class="attribute-span">Weight ${(pokemon.weight * 0.1).toFixed(1)} kg</span>
+        <span class="attribute-span">Height</span>
+        <span class="attribute-value">${(pokemon.height * 0.1).toFixed(1)} m</span>
+        <span class="attribute-span">Weight</span>
+        <span class="attribute-value">${(pokemon.weight * 0.1).toFixed(1)} kg</span>
     `;
     const statsItems = document.createElement("div");
     const statsString = pokemon.stats.map((stat) => {
@@ -65,29 +67,6 @@ const displayStats = (pokemon) => {
     }).join("");
     statsItems.innerHTML = statsString;
     statCard.appendChild(statsItems);
-}
-
-function setMainColor(type) {
-    const colors = {
-        normal: '#A8A77A',
-        fire: '#EE8130',
-        water: '#6390F0',
-        electric: '#F7D02C',
-        grass: '#7AC74C',
-        ice: '#96D9D6',
-        fighting: '#C22E28',
-        poison: '#A33EA1',
-        ground: '#E2BF65',
-        flying: '#A98FF3',
-        psychic: '#F95587',
-        bug: '#A6B91A',
-        rock: '#B6A136',
-        ghost: '#735797',
-        dragon: '#6F35FC',
-        dark: '#705746',
-        steel: '#B7B7CE',
-        fairy: '#D685AD',
-    };
 }
 
 getPokemonStats();
