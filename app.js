@@ -22,7 +22,7 @@ const displayPokemon = pokemon => {
   const pokemonString = pokemon
     .map(
       singlePokemon => `
-      <li class="card ${singlePokemon.types[0]}" onclick="newPage('${singlePokemon.name}')">
+      <li class="card ${singlePokemon.types[0]}${(singlePokemon.types.length > 1) ? " secondary-"+ singlePokemon.types[1]: ""}" onclick="newPage('${singlePokemon.name}')">
         <div class="pokemon-id">#${String(singlePokemon.id).padStart(3, '0')}</div>
         <a href="details.html?pokemonID=${singlePokemon.id}" target="">
           <img class="poke-icon" src="${singlePokemon.image}" />

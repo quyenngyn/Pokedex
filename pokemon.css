@@ -21,72 +21,160 @@
 
 .normal {
     background-color: var(--normal);
+    --main: var(--normal);
 }
 
 .fire {
     background-color: var(--fire);
+    --main: var(--fire);
 }
 
 .water {
     background-color: var(--water);
+    --main: var(--water);
 }
 
 .electric {
     background-color: var(--electric);
+    --main: var(--electric);
 }
 
 .grass {
     background-color: var(--grass);
+    --main: var(--grass);
 }
 
 .ice {
     background-color: var(--ice);
+    --main: var(--ice);
 }
 
 .fighting {
     background-color: var(--fighting);
+    --main: var(--fighting);
 }
 
 .poison {
     background-color: var(--poison);
+    --main: var(--poison);
 }
 
 .ground {
     background-color: var(--ground);
+    --main: var(--ground);
 }
 
 .flying {
     background-color: var(--flying);
+    --main: var(--flying);
 }
 
 .psychic {
     background-color: var(--psychic);
+    --main: var(--psychic);
 }
 
 .bug {
     background-color: var(--bug);
+    --main: var(--bug);
 }
 
 .rock {
     background-color: var(--rock);
+    --main: var(--rock);
 }
 
 .ghost {
     background-color: var(--ghost);
+    --main: var(--ghost);
 }
 
 .dragon {
     background-color: var(--dragon);
+    --main: var(--dragon);
 }
 
 .dark {
     background-color: var(--dark);
+    --main: var(--dark);
 }
 
 .steel {
     background-color: var(--steel);
+    --main: var(--steel);
 }
 
 .fairy {
     background-color: var(--fairy);
+    --main: var(--fairy);
+}
+
+/* add gradient for secondary types */
+
+.secondary-fire {
+    background: linear-gradient(to top, var(--fire), var(--main));
+}
+
+.secondary-water {
+    background: linear-gradient(to top, var(--water), var(--main));
+}
+
+.secondary-electric {
+    background: linear-gradient(to top, var(--electric), var(--main));
+}
+
+.secondary-grass {
+    background: linear-gradient(to top, var(--grass), var(--main));
+}
+
+.secondary-ice {
+    background: linear-gradient(to top, var(--ice), var(--main));
+}
+
+.secondary-fighting {
+    background: linear-gradient(to top, var(--fighting), var(--main));
+}
+
+.secondary-poison {
+    background: linear-gradient(to top, var(--poison), var(--main));
+}
+
+.secondary-ground {
+    background: linear-gradient(to top, var(--ground), var(--main));
+}
+
+.secondary-flying {
+    background: linear-gradient(to top, var(--flying), var(--main));
+}
+
+.secondary-psychic {
+    background: linear-gradient(to top, var(--psychic), var(--main));
+}
+
+.secondary-bug {
+    background: linear-gradient(to top, var(--bug), var(--main));
+}
+
+.secondary-rock {
+    background: linear-gradient(to top, var(--rock), var(--main));
+}
+
+.secondary-ghost {
+    background: linear-gradient(to top, var(--ghost), var(--main));
+}
+
+.secondary-dragon {
+    background: linear-gradient(to top, var(--dragon), var(--main));
+}
+
+.secondary-dark {
+    background: linear-gradient(to top, var(--dark), var(--main));
+}
+
+.secondary-steel {
+    background: linear-gradient(to top, var(--steel), var(--main));
+}
+
+.secondary-fairy {
+    background: linear-gradient(to top, var(--fairy), var(--main));
 }
