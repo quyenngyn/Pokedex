@@ -52,10 +52,16 @@ const displayStats = (pokemon) => {
     img.alt = pokemon.name;
     const statCard = document.getElementById("stat-card");
     const attributesCard = document.getElementById("attributes-card")
-    attributesCard.innerHTML = `<span class="attribute-span"> Height ${(pokemon.height * 0.1).toFixed(1)} m </span><span class="attribute-span"> Weight ${pokemon.weight * 0.1} kg </span>`;
+    attributesCard.innerHTML = `
+        <span class="attribute-span"> Height ${(pokemon.height * 0.1).toFixed(1)} m </span>
+        <span class="attribute-span"> Weight ${(pokemon.weight * 0.1).toFixed(1)} kg </span>
+    `;
     const statsItems = document.createElement("div");
     const statsString = pokemon.stats.map((stat) => {
-        return `<p><span class="stat-span"> ${renameStats(stat.name)} </span> <span class="stat-span"> ${stat.baseStat} </span></p>`;
+        return `
+            <p><span class="stat-span"> ${renameStats(stat.name)} </span> 
+            <span class="stat-span"> ${stat.baseStat} </span></p>
+        `;
     }).join("");
     statsItems.innerHTML = statsString;
     statCard.appendChild(statsItems);

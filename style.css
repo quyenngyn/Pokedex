@@ -5,23 +5,28 @@
     flex-flow: column nowrap;
 }
 
+#pokedex {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem 2rem;
+    margin: 0 10%;
+}
+
 .card {
     border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
 }
+
+.poke-icon {
+  border-radius: 50%;
+}
+
 
 * {
     margin: 0;
     padding: 0;
-    background:#f9f9f2;
   }
-  
-  /* h1 {
-    margin: 40px;
-    text-transform: uppercase;
-    text-align: center;
-    color: #089eca;
-    font-size: 3em;
-  } */
   
   ul {
     list-style: none;
@@ -34,10 +39,8 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    width: 25%;
     font-size: 1.5rem;
     color: black;
-    margin-bottom: 70px;
     transition: all .2s ease-in-out;
     font-family: 'PokemonGb', sans-serif;
     font-size: 1em;

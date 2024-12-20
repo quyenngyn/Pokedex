@@ -11,6 +11,7 @@ const getPokemon = () => {
       id: data.id,
       name: data.name,
       image: data.sprites["front_default"],
+      types: data.types.map((type) => type.type.name)
     }))
 
     displayPokemon(pokemon)
@@ -21,9 +22,9 @@ const displayPokemon = pokemon => {
   const pokemonString = pokemon
     .map(
       singlePokemon => `
-      <li onclick="newPage('${singlePokemon.name}')">
+      <li class="card ${singlePokemon.types[0]}" onclick="newPage('${singlePokemon.name}')>
         <a href="details.html?pokemonID=${singlePokemon.id}" target="">
-          <img src="${singlePokemon.image}" />
+          <img class="poke-icon" src="${singlePokemon.image}" />
         </a>
         <h3>${singlePokemon.id}. ${singlePokemon.name}</h3>
       </li>
