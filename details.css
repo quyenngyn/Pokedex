@@ -59,8 +59,9 @@ body {
     font-size: 1rem;
     margin-bottom: 10px;
     display: flex;
-    flex-flow: column;
-    /* text-align: left; */
+    flex-flow: row;
+    text-align: left;
+    justify-content: space-between;
 
 }
 
