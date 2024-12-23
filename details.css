@@ -160,8 +160,8 @@ body {
 .nav-content .nav-image {
     width: 50px;
     height: 50px;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
+    /* -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    /* filter: grayscale(100%); */
 }
 
 .nav-content span {

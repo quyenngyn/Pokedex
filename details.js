@@ -11,71 +11,6 @@ const typeList = document.getElementById("type-list");
 
 const MAX_POKEMON = 898;
 
-const getNextPokemon = () => {
-    const nextPokemonID = (parseInt(pokemonID) + 1 < MAX_POKEMON) ? parseInt(pokemonID) + 1 : 1;
-    const url = `https://pokeapi.co/api/v2/pokemon/${nextPokemonID}`;
-
-    const requestOptions = {
-        method: "GET",
-        redirect: "follow"
-      };
-       
-      fetch(url, requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-            const pokemon = {
-                name: result.name,
-                id: result.id,
-                image: result.sprites["front_default"],
-            }
-        displayNextNav(pokemon)})
-        .catch((error) => console.error(error));
-
-}
-
-const displayNextNav = (pokemon) => {
-    const nextNav = document.getElementById("next-nav");
-    const nextURL = `details.html?pokemonID=${pokemon.id}`;
-    const nextNavImage = document.getElementById("next-img");
-    const nextName = document.getElementById("next-name");
-    nextNavImage.src = pokemon.image;
-    nextNavImage.alt = pokemon.name;
-    nextName.textContent = pokemon.name;
-    nextNav.href = nextURL;
-}
-
-const getPreviousPokemon = () => {
-    const previousPokemonID = (parseInt(pokemonID) - 1 > 0) ? parseInt(pokemonID) - 1 : MAX_POKEMON;
-    const url = `https://pokeapi.co/api/v2/pokemon/${previousPokemonID}`;
-
-    const requestOptions = {
-        method: "GET",
-        redirect: "follow"
-      };
-       
-      fetch(url, requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-            const pokemon = {
-                name: result.name,
-                id: result.id,
-                image: result.sprites["front_default"],
-            }
-        displayPreviousNav(pokemon)})
-        .catch((error) => console.error(error));
-}
-
-const displayPreviousNav = (pokemon) => {
-    const previousNav = document.getElementById("prev-nav");
-    const previousURL = `details.html?pokemonID=${pokemon.id}`;
-    const previousNavImage = document.getElementById("prev-img");
-    const previousName = document.getElementById("prev-name");
-    previousNavImage.src = pokemon.image;
-    previousNavImage.alt = pokemon.name;
-    previousName.textContent = pokemon.name;
-    previousNav.href = previousURL;
-}
-
 const getPokemonStats = () => {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonID}`;
 
@@ -134,6 +69,83 @@ const displayStats = (pokemon) => {
     }).join("");
     statsItems.innerHTML = statsString;
     statCard.appendChild(statsItems);
+}
+
+const getNextPokemon = () => {
+    const nextPokemonID = (parseInt(pokemonID) + 1 < MAX_POKEMON) ? parseInt(pokemonID) + 1 : 1;
+    const url = `https://pokeapi.co/api/v2/pokemon/${nextPokemonID}`;
+
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+       
+      fetch(url, requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+            const pokemon = {
+                name: result.name,
+                id: result.id,
+                types: result.types.map((type) => type.type.name),
+                image: result.sprites["front_default"],
+            }
+        displayNextNav(pokemon)})
+        .catch((error) => console.error(error));
+
+}
+
+const displayNextNav = (pokemon) => {
+    const nextNav = document.getElementById("next-nav");
+    const nextURL = `details.html?pokemonID=${pokemon.id}`;
+    const nextNavImage = document.getElementById("next-img");
+    const nextName = document.getElementById("next-name");
+    const nextButton = document.getElementById("next-button");
+    nextNavImage.src = pokemon.image;
+    nextNavImage.alt = pokemon.name;
+    nextName.textContent = pokemon.name;
+    nextNav.href = nextURL;
+    nextButton.classList.add(pokemon.types[0]);
+    if (pokemon.types.length > 1) {
+        nextButton.classList.add(`secondary-${pokemon.types[1]}`);
+    }
+}
+
+const getPreviousPokemon = () => {
+    const previousPokemonID = (parseInt(pokemonID) - 1 > 0) ? parseInt(pokemonID) - 1 : MAX_POKEMON;
+    const url = `https://pokeapi.co/api/v2/pokemon/${previousPokemonID}`;
+
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+       
+      fetch(url, requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+            const pokemon = {
+                name: result.name,
+                id: result.id,
+                types: result.types.map((type) => type.type.name),
+                image: result.sprites["front_default"],
+            }
+        displayPreviousNav(pokemon)})
+        .catch((error) => console.error(error));
+}
+
+const displayPreviousNav = (pokemon) => {
+    const previousNav = document.getElementById("prev-nav");
+    const previousURL = `details.html?pokemonID=${pokemon.id}`;
+    const previousNavImage = document.getElementById("prev-img");
+    const previousName = document.getElementById("prev-name");
+    const previousButton = document.getElementById("prev-button");
+    previousNavImage.src = pokemon.image;
+    previousNavImage.alt = pokemon.name;
+    previousName.textContent = pokemon.name;
+    previousNav.href = previousURL;
+    previousButton.classList.add(pokemon.types[0]);
+    if (pokemon.types.length > 1) {
+        previousButton.classList.add(`secondary-${pokemon.types[1]}`);
+    }
 }
 
 getPokemonStats();
