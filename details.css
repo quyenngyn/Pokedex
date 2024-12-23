@@ -1,5 +1,5 @@
 :root {
-    --color-main: #089eca;
+    --color-main: #dd092f;
     --color-background: #f4f4f4;
     --card-background: #f9f9f2;
     --color-border: #4b4a4ac4;
@@ -21,28 +21,35 @@ body {
     background: var(--color-pokedex);
 }
 
-.container {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+#card-frame {
+    background-color: var(--color-pokedex-border);
+    min-width: 410px;
+    max-width: 95%;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: block;
 }
 
-#card-frame {
-    border: 30px solid var(--color-pokedex-border);
+#nav-frame {
     background-color: var(--color-pokedex-border);
+    min-width: 410px;
+    max-width: 95%;
+    border: 2px solid black;
     border-radius: 10px;
+    display: flex;
 }
 
 .card {
     background: var(--card-background);
+    border: 2px solid black;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 0 10px;
     padding: 20px;
     text-align: center;
     min-width: 400px;
+    max-width: 90%;
+    margin: 1rem;
 }
 
 .card img {
@@ -84,7 +91,6 @@ body {
     text-decoration: underline;
 }
 
-/* remove list styles */
 .card ul {
     padding: 1rem;
     margin: 0;
@@ -98,6 +104,7 @@ body {
     list-style: none;
     margin-bottom: 5px;
     padding: 10px;
+    border: 2px solid black;
     border-radius: 5px;
 }
 
@@ -118,4 +125,62 @@ body {
 
 .attribute-span {
     text-align: right;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--card-background);
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    min-width: 400px;
+    max-width: 90%;
+    margin: 1rem;
+}
+
+.nav-container a {
+    text-decoration: none;
+    color: var(--color-main);
+    font-weight: bold;
+}
+
+.nav-content {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-content .nav-image {
+    width: 40px;
+    height: 40px;
+}
+
+.btn {
+    background-color: var(--color-pokedex-border);
+    padding: 0.5rem 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: PokemonGb;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    color: var(--card-background);
+    font-size: 0.4rem;
+}
+
+footer a {
+    color: var(--card-background);
 }
