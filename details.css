@@ -58,8 +58,10 @@ main {
 }
 
 .card img {
-    max-width: 40vw;
+    max-width: 20vw;
+    min-width: 20vw;
     max-height: 20vh;
+    min-height: 20vh;
 }
 
 .card h1 {
@@ -127,7 +129,7 @@ main {
 
 .nav-container {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 30% 30% 30%;
     background: var(--card-background);
     border: 2px solid black;
     border-radius: 10px;
@@ -175,6 +177,7 @@ main {
     cursor: pointer;
     font-size: 0.8rem;
     font-family: PokemonGb;
+    width: 100%;
 }
 
 footer {
