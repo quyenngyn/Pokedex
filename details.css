@@ -15,28 +15,36 @@ body {
     margin: 0;
     padding: 0;
     display: grid;
+    grid-template-columns: auto;
     place-items: center;
     height: 100vh;
     width: 100vw;
     background: var(--color-pokedex);
 }
 
+main {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.6rem 0;
+}
+
 #card-frame {
     background-color: var(--color-pokedex-border);
-    min-width: 410px;
-    max-width: 95%;
     border: 2px solid black;
     border-radius: 10px;
     display: block;
+    min-width: 100%;
 }
 
 #nav-frame {
     background-color: var(--color-pokedex-border);
-    min-width: 410px;
     max-width: 95%;
     border: 2px solid black;
     border-radius: 10px;
-    display: flex;
+    min-width: 100%;
 }
 
 .card {
@@ -44,36 +52,28 @@ body {
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 0 10px;
-    padding: 20px;
+    padding: 2rem;
     text-align: center;
-    min-width: 400px;
-    max-width: 90%;
     margin: 1rem;
 }
 
 .card img {
-    width: 100px;
-    height: 100px;
-    /* border-radius: 50%; */
-    margin-bottom: 5px;
+    max-width: 40vw;
+    max-height: 20vh;
 }
 
 .card h1 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.5em;
     text-transform: capitalize;
 }
 
 .card h3 {
-    font-size: 1.2rem;
-    margin: 0 0 10px;
+    font-size: 1.2em;
     text-transform: capitalize;
 }
 
 .card p {
-    font-size: 1rem;
-    margin-bottom: 10px;
+    font-size: 1em;
     display: flex;
     flex-flow: row;
     text-align: left;
@@ -93,25 +93,23 @@ body {
 
 .card ul {
     padding: 1rem;
-    margin: 0;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 1rem;
 }
 
 .card li {
     list-style: none;
-    margin-bottom: 5px;
-    padding: 10px;
+    padding: 0.5rem;
     border: 2px solid black;
     border-radius: 5px;
+    font-size: 0.8rem;
 }
 
 #attributes-card {
     display: grid;
     grid-template-columns: auto auto;
-    margin: 0 3rem 1.2rem;
     column-gap: 3rem;
 }
 
@@ -128,25 +126,25 @@ body {
 }
 
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
     background: var(--card-background);
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
     text-align: center;
-    min-width: 400px;
     max-width: 90%;
     margin: 1rem;
+    padding: 0.5rem 2rem;
+    gap: 0.5rem;
 }
 
 .nav-container a {
     text-decoration: none;
     color: var(--color-main);
     font-weight: bold;
+    padding: 0;
+    margin: 0;
 }
 
 .nav-content {
@@ -154,14 +152,12 @@ body {
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.2rem;
 }
 
 .nav-content .nav-image {
     width: 60px;
     height: 60px;
-    /* -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0; */
-    /* filter: grayscale(100%); */
 }
 
 .nav-content span {
@@ -173,21 +169,22 @@ body {
 
 .btn {
     background-color: var(--color-pokedex-border);
-    padding: 0.5rem 1rem;
+    padding: 0.5em 1em;
     border: 2px solid black;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-family: PokemonGb;
 }
 
 footer {
-    bottom: 0;
-    width: 100%;
-    padding: 1rem;
+    max-width: 100vw;
     text-align: center;
     color: var(--card-background);
     font-size: 0.4rem;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
 }
 
 footer a {
