@@ -1,8 +1,31 @@
 const pokedex = document.getElementById("pokedex")
 
-const getPokemon = () => {
+const cardContainer = document.getElementById("pokecard");
+const loadMoreButton = document.getElementById("load-more");
+const cardCountElem = document.getElementById("card-count");
+const cardTotalElem = document.getElementById("card-total");
+const cardLimit = 151;
+const cardIncrease = 16;
+const pageCount = Math.ceil(cardLimit / cardIncrease);
+let currentPage = 1;
+
+cardTotalElem.innerHTML = cardLimit;
+
+const handleButtonStatus = () => {
+  if (pageCount === currentPage) {
+    loadMoreButton.classList.add("disabled");
+    loadMoreButton.setAttribute("disabled", true);
+  }
+};
+
+const getPokemon = (pageIndex) => {
+  currentPage = pageIndex;
+  handleButtonStatus();
+  const startRange = (pageIndex - 1) * cardIncrease;
+  const endRange = currentPage == pageCount ? cardLimit : pageIndex * cardIncrease;
+  cardCountElem.innerHTML = endRange;
   const promises = []
-  for (let i = 1; i <= 151; i++) {
+  for (let i = startRange + 1; i <= endRange; i++) {
     const url = `https://pokeapi.co/api/v2/pokemon/${i}`
     promises.push(fetch(url).then(res => res.json()))
   }
@@ -32,11 +55,18 @@ const displayPokemon = pokemon => {
     `
     )
     .join("")
-  pokedex.innerHTML = pokemonString
+
+  pokedex.innerHTML += pokemonString
 }
 
-getPokemon()
+window.onload = function () {
+  getPokemon(currentPage);
+  loadMoreButton.addEventListener("click", () => {
+    getPokemon(currentPage + 1);
+  });
+};
 
 const newPage = (pokemon) => {
   console.log(pokemon + " clicked")
 }
+
