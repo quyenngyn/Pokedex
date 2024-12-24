@@ -9,7 +9,7 @@ const cardTitle = document.getElementById("card-title");
 const cardID = document.getElementById("card-id");
 const typeList = document.getElementById("type-list");
 
-const MAX_POKEMON = 898;
+const MAX_POKEMON = 640;
 
 const getPokemonStats = () => {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonID}`;
@@ -50,7 +50,7 @@ const displayStats = (pokemon) => {
         typeList.appendChild(li);
     });
     const img = document.getElementById("card-image");
-    img.src = pokemon.image;
+    img.src = `sprites/${pokemon.id}.svg`;
     img.alt = pokemon.name;
     const statCard = document.getElementById("stat-card");
     const attributesCard = document.getElementById("attributes-card")
