@@ -8,21 +8,46 @@
     <link rel="stylesheet" href="pokemon.css" />
 </head>
 <body>
-    <div id="card-frame">
-        <div id="card" class="card">
-            <div class="card-header">
-                <div id="card-id" class="card-id"></div>
-                <h1 id="card-title" class="card-title"></h1>
-            </div>
-            <div class="card-body">
-                <img id="card-image" class="card-image" src="" alt="">
-                <ul id="type-list"></ul>
-                <div id="attributes-card"></div>
-                <h3>Base Stats</h3>
-                <div id="stat-card"></div>
+    <main>
+        <div id="card-frame">
+            <div id="card" class="card">
+                <div class="card-header">
+                    <div id="card-id" class="card-id"></div>
+                    <h1 id="card-title" class="card-title"></h1>
+                </div>
+                <div class="card-body">
+                    <img id="card-image" class="card-image" src="" alt="">
+                    <ul id="type-list"></ul>
+                    <div id="attributes-card"></div>
+                    <h3>Base Stats</h3>
+                    <div id="stat-card"></div>
+                </div>
             </div>
         </div>
-    </div>
+        <div id="nav-frame">
+            <div class="nav-container">
+                <a id="prev-nav" href="/"><div class="nav-content">
+                    <img id="prev-img" class="nav-image" src="" alt="">
+                    <span id="prev-name">home</span>
+                    <button id="prev-button" class="btn">prev</button>
+                </div></a>
+                <a href="/"><div class="nav-content">
+                    <img class="nav-image" src="icons8-pokedex-50.png" alt="">
+                    <span>home</span>
+                    <button id="back-button" class="btn">back</button>
+                </div></a>
+                <a id="next-nav" href="/"><div class="nav-content">
+                    <img id="next-img" class="nav-image" src="" alt="">
+                    <span id="next-name">home</span>
+                    <button id="next-button" class="btn">next</button>
+                </div></a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Created by 2024 DevelopHer Team: Quyen, Emily, and Saphron</p>
+        <p><a href="https://pokeapi.co/">PokeAPI</a> + <a target="_blank" href="https://icons8.com">Icons8</a></p>
+    </footer>
 <script src="details.js"></script>
 </body>
 </html>
