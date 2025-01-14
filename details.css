@@ -114,6 +114,31 @@ main {
     border: 2px solid black;
     border-radius: 5px;
     font-size: 0.8rem;
+    transition: all .2s ease-in-out;
+}
+
+.card li:hover {
+    transform: scale(1.12);
+}
+
+#card-image {
+    animation: imageFlash 2s 3;
+    animation-fill-mode: both;
+}
+
+@keyframes imageFlash {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 #attributes-card {
