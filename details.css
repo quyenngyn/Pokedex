@@ -124,20 +124,31 @@ main {
 #card-image {
     animation: imageFlash 2s 3;
     animation-fill-mode: both;
+    mask-image: linear-gradient(-75deg, rgba(0, 0, 0, 1) 30%, rgba(167, 167, 167, 0.6) 50%, rgba(0, 0, 0, 1) 70%);
+    mask-size: 200%;
+    mask-position: 150%;
 }
 
 @keyframes imageFlash {
     0% {
         transform: scale(1);
-        opacity: 1;
+        mask-position: 150%;
     }
+
+    25% {
+        rotate: 2deg;
+    }
+
     50% {
-        transform: scale(1.1);
-        opacity: 0.5;
+        transform: scale(1.1) rotate(0);
+        mask-position: -50%;
+    }
+    75% {
+        rotate: -2deg;
     }
     100% {
         transform: scale(1);
-        opacity: 1;
+        mask-position: 150%;
     }
 }
 
